@@ -11,6 +11,16 @@ from student_utils_sp18 import *
   Complete the following function.
 ======================================================================
 """
+# All kingdoms that have yet to be visited.
+unvisited = set()
+
+# Conquered kingdoms. Conquered kingdoms are free pieces. They have fallen and there is no 
+# need to put extra time into taking these places. 
+conquered = set()
+
+# Surrendered kingdoms. Surrendered kingdoms can be conquered. However they do not need to be finished. 
+surrendered = set()
+
 
 
 def solve(list_of_kingdom_names, starting_kingdom, adjacency_matrix, params=[]):
@@ -27,6 +37,14 @@ def solve(list_of_kingdom_names, starting_kingdom, adjacency_matrix, params=[]):
     raise Exception('"solve" function not defined')
     # return closed_walk, conquered_kingdoms
 
+
+def get_neighbors(kingdom, adjacency_matrix):
+    # Todo 
+    raise Exception("Function not defined.")
+
+
+def traverse_cheapest(starting_point, adjacency_matrix):
+    raise Exception("Function not defined.")
 
 """
 ======================================================================
