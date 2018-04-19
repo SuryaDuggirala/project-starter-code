@@ -38,13 +38,77 @@ def solve(list_of_kingdom_names, starting_kingdom, adjacency_matrix, params=[]):
     # return closed_walk, conquered_kingdoms
 
 
+#############################################
+#############################################
+#############################################
+######### MAIN HELPERS ######################
+#############################################
+#############################################
+#############################################
+
+
 def get_neighbors(kingdom, adjacency_matrix):
     # Todo 
-    raise Exception("Function not defined.")
+    # Return a list of neighbors
+    return adjacency_matrix[kingdom]
 
 
+
+#############################################
+#############################################
+
+
+
+# Returns a dictionary that contains the cost and node associated with 
+# that traversal cost. Has helper functions to pull data from it. look below
 def traverse_cheapest(starting_point, adjacency_matrix):
-    raise Exception("Function not defined.")
+    # We want to start at our starting point 
+
+    # From our starting point we want to go the cheapest child node to get to 
+    # This should be a one liner 
+
+    neighbors = get_neighbors(starting_point, adjacency_matrix)
+    try:
+        assert len(neighbors) != 0
+        curr_cheapest_cost = sys.maxint 
+        curr_node = neighbors[0]
+        curr_cost = adjacency_matrix[starting_point][curr_node]
+        cost_dictionary = {"node" : curr_node, "cost" : curr_cost}
+        for node in neighbors:
+            if curr_cost < curr_cheapest_cost:
+                curr_cheapest_cost = curr_cost
+                cost_dictionary["node"] = curr_node
+                cost_dictionary["cost"] = curr_cost
+        return cost_dictionary
+    except:
+        print("No neighbors")
+        return None
+
+
+
+#############################################
+#############################################
+#############################################
+########## UTILITY FUNCTIONS ################
+#############################################
+#############################################
+#############################################
+
+# Retrieve the node from a cost dictionary
+def get_cost(cost_dict):
+    assert cost_dict is not None 
+    return cost_dict["cost"]
+
+
+def get_node(cost_dict):
+    assert cost_dict is not None
+    return cost_dict["node"]
+
+#############################################
+#############################################
+#############################################
+#############################################
+
 
 """
 ======================================================================
